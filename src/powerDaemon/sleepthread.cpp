@@ -8,10 +8,11 @@ sleepThread::sleepThread() {}
 void sleepThread::start()
 {
     log("Sleep pipe thread active", className);
-    QDir pipePath = QDir("/run/ipd");
+    QDir pipeDirPath = QDir("/dev/ipd");
+    QFile pipePath = QFile("/dev/ipd/fifo");
     while(true) {
         QThread::sleep(1);
-        if(pipePath.exists() == true) {
+        if(pipePath.exists() == true and pipeDirPath.exists() == true) {
             log("Looking for messages in pipe", className);
             char * pipe = "/dev/ipd/fifo";
             int fd = ::open(pipe, O_RDONLY);

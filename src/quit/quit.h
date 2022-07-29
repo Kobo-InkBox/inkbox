@@ -24,7 +24,6 @@ private slots:
     void on_pushButton_4_clicked();
     void on_backBtn_clicked();
     void on_pushButton_3_clicked();
-    void emulatePowerButtonInputEvent();
 
 private:
     Ui::quit *ui;

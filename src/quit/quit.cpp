@@ -91,45 +91,9 @@ void quit::on_pushButton_3_clicked()
 {
     log("Suspending", className);
     if(checkconfig("/mnt/onboard/.adds/inkbox/.config/20-sleep_daemon/9-deepSleep") == true) {
-        writeFile("/mnt/onboard/.adds/inkbox/.config/20-sleep_daemon/sleepCall", "deepsleep");
+        writeFile("/dev/ipd/sleepCall", "deepsleep");
     }
     else {
-        emulatePowerButtonInputEvent();
-    }
-}
-
-void quit::emulatePowerButtonInputEvent() {
-    log("Emulating power button input event", className);
-    // Input event
-    struct input_event inputEvent = {};
-    inputEvent.type = EV_KEY;
-    inputEvent.code = KEY_POWER;
-    // SYN report event
-    struct input_event synReportEvent = {};
-    synReportEvent.type = EV_SYN;
-    synReportEvent.code = SYN_REPORT;
-    synReportEvent.value = 0;
-
-    int fd = open("/dev/input/event0", O_WRONLY);
-    if(fd != -1) {
-        // Send press event
-        inputEvent.value = 1;
-        ::write(fd, &inputEvent, sizeof(inputEvent));
-
-        // Send SYN report event
-        ::write(fd, &synReportEvent, sizeof(synReportEvent));
-
-        // Some sleep
-        QThread::msleep(50);
-
-        // Send release event
-        inputEvent.value = 0;
-        ::write(fd, &inputEvent, sizeof(inputEvent));
-        ::write(fd, &synReportEvent, sizeof(synReportEvent));
-
-        ::close(fd);
-    }
-    else {
-        QString function = __func__; log(function + ": Failed to open input device node at '/dev/input/event0'", className);
+        writeFile("/dev/ipd/sleepCall", "sleep");
     }
 }

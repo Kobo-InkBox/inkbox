@@ -75,7 +75,7 @@
         <x>0</x>
         <y>0</y>
         <width>680</width>
-        <height>545</height>
+        <height>553</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -114,15 +114,15 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="CBSLabel">
+          <widget class="QLabel" name="label">
            <property name="font">
             <font>
-             <weight>75</weight>
-             <bold>true</bold>
+             <weight>50</weight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
-            <string>50</string>
+            <string>Cinematic brightness speed</string>
            </property>
           </widget>
          </item>
@@ -137,15 +137,15 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="CBSLabel">
            <property name="font">
             <font>
-             <weight>50</weight>
-             <bold>false</bold>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
-            <string>Cinematic brightness speed</string>
+            <string>50</string>
            </property>
           </widget>
          </item>
@@ -241,15 +241,15 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="idleSleepLabel">
+          <widget class="QLabel" name="label_5">
            <property name="font">
             <font>
-             <weight>75</weight>
-             <bold>true</bold>
+             <weight>50</weight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
-            <string>Idle sleep number</string>
+            <string>Sleep when idle</string>
            </property>
           </widget>
          </item>
@@ -264,15 +264,15 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="idleSleepLabel">
            <property name="font">
             <font>
-             <weight>50</weight>
-             <bold>false</bold>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
-            <string>Sleep when idle</string>
+            <string>60</string>
            </property>
           </widget>
          </item>
@@ -494,7 +494,7 @@
          <item>
           <widget class="QCheckBox" name="hCustomCaseBtn">
            <property name="text">
-            <string>Custom case</string>
+            <string>Custom case support</string>
            </property>
           </widget>
          </item>

@@ -28,9 +28,11 @@ private slots:
     void on_ledUsageBtn_clicked(bool checked);
     void on_idleSleepIncreaseBtn_clicked();
     void on_idleSleepDecreaseBtn_clicked();
-    void convertIdleSleepInt();
     void on_hCustomCaseBtn_clicked(bool checked);
     void on_deepSleepBtn_clicked(bool checked);
+
+    void convertIdleSleepInt();
+    void convertCinematicInt();
 
 private:
     Ui::powerDaemonSettings * ui;
@@ -41,6 +43,7 @@ private:
     int idleSleepInt;
     bool customCaseBool;
     bool deepSleepBool;
+    int cinematicBrightnessInt;
 };
 
 #endif // POWERDAEMONSETTINGS_H
