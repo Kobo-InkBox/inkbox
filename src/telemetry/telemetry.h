@@ -7,11 +7,11 @@
 #include <QApplication>
 #include "functions.h"
 
-class telemetry : public QObject
+class Telemetry : public QObject
 {
     Q_OBJECT
 public:
-    explicit telemetry(QObject *parent = nullptr);
+    explicit Telemetry(QObject *parent = nullptr);
     QString className = this->metaObject()->className();
     QString message;
     QString deviceUID;

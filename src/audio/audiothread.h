@@ -5,13 +5,13 @@
 #include <sys/un.h>
 #include <QTimer>
 
-class audiothread : public QObject
+class AudioThread : public QObject
 {
     Q_OBJECT
 
 public:
     QString className = this->metaObject()->className();
-    audiothread();
+    AudioThread();
     void sendInfo(QString message);
     int sockfd;
     struct sockaddr_un addr;

@@ -3,9 +3,9 @@
 
 #include <stdlib.h>
 
-sleepThread::sleepThread() {}
+SleepThread::SleepThread() {}
 
-void sleepThread::start()
+void SleepThread::start()
 {
     log("Sleep pipe thread active", className);
     QDir pipeDirPath = QDir("/dev/ipd");

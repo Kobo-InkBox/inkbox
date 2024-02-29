@@ -10,9 +10,9 @@
 
 #include <QTimer>
 
-audiothread::audiothread() {}
+AudioThread::AudioThread() {}
 
-void audiothread::start() {
+void AudioThread::start() {
     log("Audio thread monitor available", className);
 
     // QTimer doesn't work in such loops
@@ -86,7 +86,7 @@ void audiothread::start() {
 // I have no explanation as to why this needs to connect/disconnect every time.
 // while (recv(client_sockfd, buffer_tmp, 1, 0) > 0) {
 // ^ This line makes InkBox freeze
-void audiothread::sendInfo(QString message) {
+void AudioThread::sendInfo(QString message) {
     log("Sending message: *" + message + "*", className);
     // Send
     sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
@@ -113,7 +113,7 @@ void audiothread::sendInfo(QString message) {
 }
 
 // Mutex managed outside of the function
-void audiothread::audioProgress() {
+void AudioThread::audioProgress() {
     global::audio::progressSeconds = global::audio::progressSeconds + 1;
     // log("Progress, +1 sec: " + QString::number(global::audio::progressSeconds), className);
     if(global::audio::progressSeconds >= global::audio::queue[global::audio::itemCurrentlyPlaying].lengths) {

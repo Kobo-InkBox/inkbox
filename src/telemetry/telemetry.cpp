@@ -1,16 +1,19 @@
 #include "telemetry.h"
+#include "device.h"
 
-telemetry::telemetry(QObject *parent)
+Telemetry::Telemetry(QObject *parent)
     : QObject{parent}
 {
     QTimer::singleShot(100, this, SLOT(telemetrySlot()));
 }
 
-QJsonObject telemetry::collectDeviceInformation() {
+QJsonObject Telemetry::collectDeviceInformation() {
+    Device::SysInfo info = Device::getSingleton()->getSystemInfo();
+
     QJsonObject data;
-    data.insert("DeviceUID", getUID());
+    data.insert("DeviceUID", info.uid);
     data.insert("SystemVersion", readFile("/opt/version").trimmed());
-    data.insert("Device", global::deviceID.trimmed());
+    data.insert("Device", Device::getSingleton()->getID());
     if(checkconfig("/external_root/opt/root/rooted")) {
         data.insert("DeviceRooted", "true");
     }
@@ -27,7 +30,7 @@ QJsonObject telemetry::collectDeviceInformation() {
     return data;
 }
 
-bool telemetry::sendDeviceInformation(QJsonObject data) {
+bool Telemetry::sendDeviceInformation(QJsonObject data) {
     log("Telemetry data to be sent to server: " + QJsonDocument(data).toJson(QJsonDocument::Compact), className);
 
     // NOTE: This URL *will* change in the future
@@ -46,7 +49,7 @@ bool telemetry::sendDeviceInformation(QJsonObject data) {
     return true;
 }
 
-void telemetry::telemetrySlot() {
+void Telemetry::telemetrySlot() {
     QJsonObject data = collectDeviceInformation();
     if(sendDeviceInformation(data)) {
         writeFile("/mnt/onboard/.adds/inkbox/.config/24-telemetry/asked", "true");

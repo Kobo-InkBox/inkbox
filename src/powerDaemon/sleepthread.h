@@ -3,11 +3,11 @@
 
 #include <QObject>
 
-class sleepThread : public QObject {
+class SleepThread : public QObject {
         Q_OBJECT
 public:
     QString className = this->metaObject()->className();
-    sleepThread();
+    SleepThread();
 
 public slots:
     void start();

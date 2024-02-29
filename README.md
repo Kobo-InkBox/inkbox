@@ -47,3 +47,12 @@ I suggest you visit the [wiki](https://github.com/Kobo-InkBox/inkbox/wiki). Feel
 If you like this project and want to improve it in some way, feel free to fork this repository or [one of the subprojects this organization hosts](https://github.com/Kobo-InkBox), then make a [pull request](https://github.com/Kobo-InkBox/inkbox/pulls). I'll be happy to review it when I have time. You can also join the official [Matrix space](https://matrix.to/#/#inkbox-os-project:matrix.org) or [Discord server](https://discord.com/invite/uSWtWbY23m) if you'd like to chat a bit.
 <br><br>
 On the other hand, if you don't have the appropriate coding skills or just want to help in some way, feel free to make a donation at my [PayPal account](https://paypal.me/inkboxos/), [LiberaPay](https://liberapay.com/tux-linux/), or via Bitcoin: 3MmXq5o78b4C7ub5sb7F5WVC86jzc6PzSN . I'm a student and motivation has been the only thing that has helped me maintain this project for the last few years. Developing an entire operating system on my own was not an easy task. I have time, but I like to spend it wisely.
+
+
+## Building
+
+Make sure you have the following requirements installed on your system:
+* a c/cpp profiler
+* `libsndfile-dev`
+
+Next open the `inkbox.pro` file qith QTCreator
